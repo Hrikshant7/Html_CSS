@@ -1,0 +1,108 @@
+<!--
+    What is RWD (Responsive Web Design )?
+       -> When a web app adapts and displays the content properly on different devices like(desktop, laptop, mobile, tablets).
+       -> To gain more users towards using the responsive web applications.  
+       
+    How to build responsive web apps?
+
+       -> Meta viewport tag?
+          1. <meta name="viewport" content="width=device-width, initial-scale=1.0">
+             name="viewport" -> used to define the the viewport settings
+             width=device-width -> sets the width of the viewport to match the device screen width.
+             initial-scale=1.0 -> sets the zoom level or scale factor which will start from 1.0 intitially
+          2. Define the brakpoints that can cover the range of all devices.
+                 you need to define the breakpoints for the range of devices
+                   1. Mobile devices
+                        Breakpoints -> device width of the screen 320px to 480px
+
+                   2. Tablets and Large phones
+                        Breakpoints -> device width of the screen 600px
+                       
+                   3. Landscape tables and smaller laptops
+                        Breakpoints -> device width of the screen 768px
+
+                   4. desktops and laptops 
+                        Breakpoints -> device width of the screen 992px
+
+                   5. Large Desktops and TVs
+                        Breakpoints -> device width of the screen 1200px or higher
+            3. Use media query to use above defined break points
+                   1. device width of the screen 320px to 480px
+                      @media screen and (min-width: 320px) and (max-width: 480px) {
+                        /* putting the CSS styles for mobile devices* /
+                      }
+                    2. device width of the screen 600px
+                   
+                      @media screen and (max-width: 600px) {
+                        /* putting the CSS styles for Tablets and Large phones* /
+                      }
+                    3.  @media screen and (max-width: 768px) {
+                        /* putting the CSS styles for Landscape tables and smaller laptops* /
+                      }
+                    4.  @media screen and (max-width: 992px) {
+                        /* putting the CSS styles for desktops and laptops * /
+                      }
+                    5.  @media screen and (max-width: 1200px) {
+                        /* putting the CSS styles for for larger desktops or TVs * /
+                      }
+               4. Use the flexbox to create responsive layout.
+               5. Use font-size , padding, margin in rem
+               6. Use height and width in %
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RWD Page</title>
+    <style>
+        :root {
+            font-size: 62.5%; /* 10px*/
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        .container {
+            width: 100%;
+            height: 20%;
+            padding: 2rem;
+            background-color: burlywood;
+        }
+
+        @media screen and (min-width:320px) and (max-width: 480px){
+            .container {
+                background-color: rgb(112, 98, 241);
+                font-size: 0.75rem; /*1rem = 10px X 0.75 = 7.5px*/
+            }
+        }
+
+        @media screen and (min-width: 481px) and (max-width: 600px){
+            .container {
+                background-color: rgb(236, 241, 98);
+                font-size: 1.2rem; /*1rem = 10px X 0.75 = 7.5px*/
+            }
+        }
+
+        @media screen and (min-width: 601px) and (max-width: 768px){
+            .container {
+                background-color: rgb(117, 240, 119);
+                font-size: 2.0rem; /*1rem = 10px X 0.75 = 7.5px*/
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="heading"> Welcome in the responsive web apps world!!</h1>
+    </div>
+    
+</body>
+</html>

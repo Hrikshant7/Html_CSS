@@ -1,0 +1,52 @@
+/*---- Critical CSS ----*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+li a {
+    text-decoration: none;
+}
+
+:root {
+/* 1.5rem * 10 = 15px
+    3.0rem 8 10 = 30px
+*/
+    font-size: 62.5%; /* 16px * 0.625 = 10px */    
+}
+
+p, li, a, label, option {
+    font-size: 1.5rem;
+}
+
+h1 {
+    font-size: 4.5rem;
+    color: #ffffff;
+}
+
+.hb-text {
+    color: rgb(205, 8, 77);
+}
+
+h2 {
+    font-size: 2.4rem;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 2.0rem;
+}
+
+h4 {
+    font-size: 1.6rem;
+}
+
+i {
+    font-size: 3.0rem;
+}

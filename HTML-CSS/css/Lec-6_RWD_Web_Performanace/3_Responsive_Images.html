@@ -1,0 +1,19 @@
+<!--
+    format of images:
+      1. PNG (transparent bakground)
+      2. JPEG (not having the transparent background)
+      3. WebP (Compressed)
+      4. GIF (Animated picture)
+      5. SVG (small icons and few images as well)
+   What is Responsive web images?
+      To the images over the browser for different devices , we must us ethe responsive web images via picture tag.
+
+      <picture>
+        <source srcset="picture.webp" type="image/webp">
+        <source srcset="picture_small.png 1X,
+                        picture_medium.png 2X
+                        picture_large.png 3X">
+        <img loading = "lazy" src="picture.png" alt="This is about banking system"
+      </picture>
+
+-->
