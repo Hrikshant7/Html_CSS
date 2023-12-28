@@ -3,7 +3,7 @@
  *     -> Polyfills are code snippets or javascript libraries 
  *        that provide moderen functionality to the older browsers or environments 
  *        that don't support those features natively.
- *     -> polyfill means it is filling the gap to compatibility.
+ *     -> polyfill means it is filling the gap to browser compatibility.
  * 
  *   when to use polyfills?
  *   1. cross-browser compatability.
@@ -50,9 +50,6 @@ function greetMsg(message, delimeter, obj) {
 }
 
 console.log(greetMsg.myCall(person, 'Hi', '!', {data: 10} ));
-
-
-
 
 
 // As HW please write the polyfill of apply and bind.

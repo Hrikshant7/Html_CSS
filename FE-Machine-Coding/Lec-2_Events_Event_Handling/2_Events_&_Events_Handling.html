@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events and Event Handling</title>
+    <style>
+        .box {
+            margin: 20px;
+            padding: 20px;
+            height: 100px;
+            width: 100px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        What is Event in DOM?
+           - It is just an action take place within the webpage.
+           - Eg:  When a user interacts with your website, click on a button to open modal, 
+                  typing something in input field via keyboard, refereshing the web page, resize the screen etc.
+
+        What is event handling?
+           - A process of responding to the user interactions.
+           - So, as a developer you need to capture and handle these events using Javscript to respond the user interactions.
+
+          
+        How many events are there majorly?
+        
+        1. Mouse events: click, dbclick, hover, mouseover, mouseout, mouseenter, mouseleave, mousemove, mouseup 
+
+        2. keyboard events: keyup, keydown, keypress = keydown+keyup
+
+        3. Form events: submit, reset, input, change, focus, bulr
+
+        4. window events: resize, scroll, load
+
+        How many ways to handle the events?
+         
+          1. Inline event handling
+          2. DOM event listener methods
+             
+            element.addEventListener(eventname, listener, options);
+
+               - eventname: name of the events(mouse events, keyboard events, form events)
+               - listener: a function that will be called when an specified event will occur.
+               - options: is an object that allows to occur an event only once.
+                {once: true}
+
+
+            element.removeEventListner(eventname, listener)
+
+           
+
+
+    -->
+
+    <!--  1. Inline event handling -->
+    <!-- <button onclick="handClick()">Click me</button> -->
+
+    <!-- 2. DOM event listener method-->
+    <button>Click me</button>
+
+    <div class="box"></div>
+
+    <script>
+
+        const btn = document.querySelector('button');
+        console.log(btn);
+
+        const handleClick = () => {
+            let p = document.createElement('p');
+            p.innerText = 'Hello';
+
+            let body = document.querySelector('body');
+            body.appendChild(p);
+
+            btn.removeEventListener('click', handleClick);
+
+        }
+
+        // first approach
+        // btn.addEventListener('click', handleClick, {once: true});
+
+        btn.addEventListener('click', handleClick);
+
+        btn.addEventListener('click', ()=>{
+           console.log('I was clicked!!');
+        });
+
+        const box = document.querySelector(".box");
+
+        box.addEventListener('mouseover', ()=>{
+            console.log('hover occurred');
+        });
+
+        box.addEventListener('mouseleave', ()=>{
+            console.log('mouse is left from the box!!!');
+        })
+
+
+
+
+
+
+    </script>
+</body>
+</html>

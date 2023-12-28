@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Q-2 Display entered text via input field -->
+    <input type="text" id="myInput">
+    <p id="displayText"></p>
+
+    <script>
+        const input = document.querySelector("#myInput");
+        const pElem = document.querySelector('#displayText');
+        
+
+        input.addEventListener('input', ()=>{
+            pElem.textContent = input.value;
+        })
+
+    </script>
+</body>
+
+</html>

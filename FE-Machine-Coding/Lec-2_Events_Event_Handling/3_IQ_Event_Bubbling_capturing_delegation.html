@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event - Bubbling, Capturing and Delegation(V.IMP. IQ)</title>
+</head>
+<body>
+    <!--
+        What is event bubbling?
+
+           - Event bubbling is a default behavior in the DOM and it occurs when an event is happened, 
+             then it propagates up through its topmost element. 
+
+        what is event capturing?
+           - Event capturing is less commonly used and it requires explicit specification 
+             when you register the event listener. It propagated from topmost element to bottom element.
+
+        Disadvantages of both event bublling and event capturing:
+          1. Web performnace impact.
+          2. unintended event handling.
+          3. Difficulties in event management as well.
+
+        Stop event propagation: event.stopPropagation();
+
+
+        What is event delegation?
+
+          - Instead of attaching the event listeners to individual elements, 
+            you can use event delegation by attaching a single event listner to a common parent element.
+    -->
+
+    <div id="outer">
+        click me outer!
+        <br>
+        <br>
+        <div id="inner">
+            click me inner!!
+        </div>
+    </div>
+
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul>
+
+    <script>
+        // event bubbling
+        const innerElem = document.querySelector('#inner');
+
+        innerElem.addEventListener("click", (event)=>{
+           console.log('inner element is clicked!!');
+           //event.stopPropagation(); // prevents the further propagation of the current the event bubbling.
+           //event.stopImmediatePropagation(); // if there are several listeners are attached to the same element for same event type.
+                                               // they are called in the order in which they are added.  event.stopImmediatePropagation() is invoked during one such call, no remianing listeners will be called.
+        });
+
+        innerElem.addEventListener("click", (event)=>{
+           console.log('inner element is clicked!!');
+          
+           event.stopImmediatePropagation(); 
+        });
+
+        const outerElem = document.querySelector('#outer');
+
+        outerElem.addEventListener("click", (event)=>{
+            console.log('outer element is clicked!!');
+            event.stopPropagation();
+        });
+
+        const bodyElem = document.querySelector('body');
+
+        bodyElem.addEventListener("click", ()=>{
+            console.log('body element is clicked!!');
+        });
+
+
+         // event capturing
+            // const innerElem = document.querySelector('#inner');
+
+            // innerElem.addEventListener("click", ()=>{
+            //     console.log('inner element is clicked!!');
+            // }, true);
+
+            // const outerElem = document.querySelector('#outer');
+
+            // outerElem.addEventListener("click", ()=>{
+            //     console.log('outer element is clicked!!');
+            // }, true);
+
+            // const bodyElem = document.querySelector('body');
+
+            // bodyElem.addEventListener("click", ()=>{
+            //     console.log('body element is clicked!!');
+            // }, true);
+
+
+        // Event delegation
+
+        const ul = document.querySelector('ul');
+
+        ul.addEventListener('click', (event)=>{
+            event.stopPropagation();
+            // console.log(event.target.tagName);
+            if(event.target.tagName = 'LI') {
+                console.log(event.target.textContent);
+            }
+        });
+         
+    </script>
+    
+</body>
+</html>
