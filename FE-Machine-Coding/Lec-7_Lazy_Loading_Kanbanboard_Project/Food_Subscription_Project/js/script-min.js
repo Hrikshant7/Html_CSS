@@ -1,0 +1,1 @@
+import IntersectionObserverUtil from"../utils/lazyload.js";const handleImageIntersection=e=>{e.src=e.dataset.src,e.onload=()=>{e.removeAttribute("data-src")}},options={threshold:.5,rootMargin:"200px"},lazyLoadImages=()=>{const e=new IntersectionObserverUtil(handleImageIntersection,options);document.querySelectorAll("img[data-src]").forEach((t=>{e.observe(t)}))};lazyLoadImages();
