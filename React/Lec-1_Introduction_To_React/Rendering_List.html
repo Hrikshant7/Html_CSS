@@ -1,0 +1,52 @@
+<!--
+   What is rendering list in react?
+
+    - a list of data to be displayed in an ordered format and mainly used for displaying menu list.
+
+   
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendering List Elements</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <!-- frontend -> dom  -->
+    <!-- react dom -> To get the actual changes in the DOM with the help of react DOM library  -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- to convert jsx to js  -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+       // Display the crickets name on the browser.
+
+       const crickters = ['Sachin', 'Dhoni', 'Rohit', 'Dhawan', 'Hardik'];
+
+        const Main = ({ crickters }) => {
+            // const { crickters } = props;
+            
+            const listItem = crickters.map((crickter, index) => {
+                const uniqueKey = `item-${index}`;
+                return <li key={uniqueKey} > { crickter } </li>;
+            })
+             
+            return <ul>
+                {/*<li>Sachin</li> */}
+                { listItem }
+            </ul>
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(< Main crickters={crickters}/>);
+</script>
+    
+</body>
+</html>
+
