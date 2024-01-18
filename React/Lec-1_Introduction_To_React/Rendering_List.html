@@ -33,8 +33,8 @@
             // const { crickters } = props;
             
             const listItem = crickters.map((crickter, index) => {
-                const uniqueKey = `item-${index}`;
-                return <li key={uniqueKey} > { crickter } </li>;
+                //const uniqueKey = `item-${index}`;
+                return <li key={`item-${index+1}`} id={`item-${index+1}`}> { crickter } </li>;
             })
              
             return <ul>
@@ -44,7 +44,7 @@
         }
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(< Main crickters={crickters}/>);
+        root.render(<Main crickters={crickters} />);
 </script>
     
 </body>

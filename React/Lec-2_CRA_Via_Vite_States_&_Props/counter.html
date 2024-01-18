@@ -1,0 +1,117 @@
+<!--
+    React Ecosystem:
+      1. React: it is used to update the UI efficiently, follows componnent approach.
+      2. ReactDOM: to update the real DOM.
+      3. JSX: it's syntactical sugar of HTML + JS
+      4. Component: it's a resusable piece of code that returns the JSX elements.
+      5. babel: It's transpiler that helps to convert JSX to JS.
+      6. props(properties): Pass data from one comp to another comp. (parent to child).
+      7. key: it is used to identifty the unique element internally.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Counter APP</title>
+    <link rel="stylesheet" href="./style.css"/> 
+
+    <!-- react is a ui manipulation (logic)library -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <!-- frontend -> dom  -->
+    <!-- react dom -> To get the actual changes in the DOM with the help of react DOM library  -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- to convert jsx to js  -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const Counter = () => {
+
+            // js varaibale
+            //let count = 0;
+
+            // React.useState() -> returns an array of state variable and a method which updates the UI or re-render the UI
+            const [count, setCount] = React.useState(0);
+            const [val, setVal] = React.useState('');
+
+            const increment = () => {
+                setCount(Number(count)+1);
+                //console.log('Increment:', count);
+            }
+
+            const decrement = () => {
+                setCount(Number(count)-1);
+                //console.log('decrement:', count);
+            }
+
+            const updateCounter = (event) => {
+                const val = event.target.value;
+                setCount(val);
+
+            }
+
+            // const styleObj = { // How to add styles in react as Inline ->  Inline styling in react
+            //     btn: {
+            //         color: 'red',
+            //         fontSize: 24
+            //     },
+
+            //     text: {
+            //         color: 'green',
+            //         fontSize: 20,
+            //         padding: '0 10px '
+            //     }
+                
+            // };
+
+            return (
+      
+                <div>
+                    {/*<button style={styleObj.btn} onClick={increment}>+</button>
+                    <span style={styleObj.text}>{count}</span>
+                     <button style={styleObj.btn} onClick={decrement}>-</button> */}
+                     
+                    <div>
+                        <label>Value: </label><input  
+                        type="text" 
+                        onChange={updateCounter}/>
+                    </div>
+
+                    {/*<button id="increment-btn" className="btn" onClick={increment}>+</button>
+                    <span className="text">{count}</span>
+                <button className="btn" onClick={decrement}>-</button> */}
+
+                    <button id="increment-btn" className="btn" onClick={()=>{increment()}}>+</button>
+                    <span className="text">{count}</span>
+                    <button className="btn" onClick={()=>{decrement()}}>-</button>
+                </div>
+
+            );
+
+        }
+
+        function Main() {
+            return (
+                <div>
+                    <h1> Counter </h1>
+                    <Counter />
+                </div>
+            )
+
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root')); // React18.0v
+        root.render(<Main />);
+
+        //ReactDOM.render(<Main />, document.getElementById('root')); // React-17version
+    </script>
+</body>
+</html>
