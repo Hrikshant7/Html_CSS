@@ -7,9 +7,6 @@
  *       - start with skeleton or loader to show UI.
  *       - render the loader
  *       - As soon as you get the data from server then render the actual data and close the loader.
- * 
- * 
- * 
  */
 
 import { useEffect, useState } from "react";
@@ -17,7 +14,7 @@ import { useEffect, useState } from "react";
 const UseEffectRequestAPI = () => {
 
     const [data, setData] = useState(null);
-    const [val, setVal] = useState(1);
+    const [val, setVal] = useState(3);
 
     const fetchUser = async() => {
         const res = await fetch(`https://jsonplaceholder.typicode.com/users/${val}`);
@@ -28,6 +25,11 @@ const UseEffectRequestAPI = () => {
     // fetchUser();
     useEffect(()=>{
         fetchUser();
+        return () => {
+            // Cleanup function (runs when the component unmounts)
+            console.log('Component unmounted');
+            // You can perform cleanup activities here, if needed.
+        };
     }, [val]);
 
     return(
@@ -40,9 +42,9 @@ const UseEffectRequestAPI = () => {
 
                 (
                     <>
-                    <h2>Name:{data.name}</h2>
-                    <h2>Email:{data.email}</h2>
-                    <h2>User Name:{data.username}</h2>
+                        <h2>Name:{data.name}</h2>
+                        <h2>Email:{data.email}</h2>
+                        <h2>User Name:{data.username}</h2>
                     </>
                 )
             }

@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import './App.css';
 
-import Todo from './components/todo/Todo';
+// import Todo from './components/todo/Todo';
 import UseEffectUseCases from './components/useEffects/UseEffectUseCases';
 import UseEffectRequestAPI from './components/useEffects/UseEffectRequestAPI';
 import StopWatch from './components/stopWatch/StopWatch';
@@ -15,7 +14,7 @@ const App = () => {
       <UseEffectRequestAPI />
       <StopWatch />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
