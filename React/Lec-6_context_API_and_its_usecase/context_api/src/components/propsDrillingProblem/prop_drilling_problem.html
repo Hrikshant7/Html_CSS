@@ -1,0 +1,33 @@
+<!--
+   What is prop drilling problem?
+
+    - It's a situation  where props are passed down to 
+      the multilevel of nested components to send the data 
+      that is required by some exact component. 
+
+    - Problem via prop drilling:
+       1. Maintainability: difficult to manage the props in multilevel nested components.
+       2. performance: because components get re-rendered unnecessary.
+       3. Code duplication: prop drilling problme leads to code duplicay.
+
+    - To solve this prop drilling problem:
+       1. context API -> it'a part of react itself, you don't require any package installation, just useContext() hook of react.
+       2. redux -> it's third party state management library, for this redux package needs to install and then you can use it.
+
+    - What is context API?
+
+       - A way to share your data among components without need to pass the props to any nested level components.
+       - 3 steps you need to folow to implement context API.
+
+         1. create context.
+
+            import { createContext } from "react";
+
+            const CounterContext = createContext();
+
+         2. create component provider because this provider will provide the data.
+
+            
+
+         3. wrap the context provider to the whole APP component.
+-->
