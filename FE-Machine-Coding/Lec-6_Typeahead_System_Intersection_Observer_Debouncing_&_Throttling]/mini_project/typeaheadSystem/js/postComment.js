@@ -1,0 +1,1 @@
+import { submitData } from "../utils/fetchData";

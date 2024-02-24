@@ -1,0 +1,70 @@
+<!--
+    Limitation to use Float property: (To create the layouts)
+        -> causes the problem of overlapping.
+        -> floats doesn't work well for responsive designs, as they don't automatically adjust 
+           their position based different screen sizes.
+        
+        To overcome this above float problem
+    
+    What is flexbox?
+        -> It's modern way to create the responsive layouts. It is used more in the IT industry frontend projects.
+        -> because it provides more powerful and flexible ways to create the complex layouts and 
+          also it is supported by maximum modern web browser. 
+    How to create the flexbox/ flexible box layout?
+        -> If you are going to create flexbox, then a flexbox container is required
+           you can cretae it via display: flex;
+        -> You want to create and put your elements in flexbox container:
+            vertical alignment (cross-axis) -> align-items: flex-start | flex-end | center | basline | stretch
+            horizontal alignment (main-axis) -> justify-content: flex-start | flex-end | center | space-evenly | space-between | space-around
+        ->  flex items styling:
+             can use these properties like width, height, color, font size, background-color
+
+        -> If the number flex items are more than than the flex container size then it will overflow:
+           you can flex-wrap: wrap | no-wrap and gap: 10px is used to controlling the space b/w the items.
+        
+        ->  You feel the repsonsive and appealing layouts that you are going to create via flexbox.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Layout</title>
+    <style>
+        .parent {
+            border: 1px solid red;
+            width: 80%;
+            padding: 20px;
+            display: flex;
+            background-color: burlywood;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex-direction: row;
+        }
+
+        .child {
+            height: 10%;
+            width: 20%;
+            padding: 10px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="parent">
+        <div class="child child1"> I am child 1</div>
+        <div class="child child2"> I am child 2</div>
+        <div class="child child3"> I am child 3</div>
+        <div class="child child1"> I am child 1</div>
+        <div class="child child2"> I am child 2</div>
+        <div class="child child3"> I am child 3</div>
+        <div class="child child1"> I am child 1</div>
+        <div class="child child2"> I am child 2</div>
+        <div class="child child3"> I am child 3</div>
+    </div>
+    
+</body>
+</html>

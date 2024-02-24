@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragments</title>
+</head>
+<body>
+    <!--
+         What is fragment?
+            - you may heard in React <React.Fragment></React.Fragment>/<></>, its task 
+                is to wrap up the collection of HTML tags.
+            - similary, we have fragment in DOM.
+
+            - You create the fargment in DOM via 
+               const fragment = document.createDocumentFragment();
+               fragment.appenChild(newLi);
+
+            - Usage:
+               - to improve web performance when you are updating the large number of elements in DOM directly.
+
+    -->
+    <ul></ul>
+    
+</body>
+
+<script>
+
+    //  for(let i=0; i<10000 ; i++){
+    //     const ul = document.querySelector('ul');
+
+    //     const newLi = document.createElement('li'); // <li>List Item - 1</li>
+    //     newLi.innerText = `List Item - ${i + 1}`;
+
+    //     ul.appendChild(newLi);
+    //  }
+
+    //Smarter way to do this via fragment
+
+    const ul = document.querySelector('ul');
+    let fragment = document.createDocumentFragment();
+
+    for(let i=0; i<10000 ; i++){
+        const newLi = document.createElement('li'); // <li>List Item - 1</li>
+        newLi.innerText = `List Item - ${i + 1}`;
+        fragment.appendChild(newLi);
+    }
+    
+    ul.appendChild(fragment);
+    fragment = null;
+      
+    // console.log(fragment);
+
+</script>
+</html>

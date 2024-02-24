@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .balls {
+            margin-top: 4rem;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .ball {
+            height: 4rem;
+            width: 4rem;
+            border-radius: 50%;
+            border: none;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Q2. Make all the balls blue  -->
+    <div class="balls">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+    </div>
+</body>
+
+<script>
+    const allBalls = document.querySelectorAll('#ball-1');
+    console.log(allBalls);
+    
+    allBalls.forEach((ball)=>{
+        ball.style.background = 'blue';
+    });
+
+
+    const divElems = document.getElementsByClassName('ball');
+    // for(let i=0; i<divElems.length; i++) {
+
+    // }
+    const arrElems = Array.from(divElems);
+    arrElems.forEach((elem)=>{
+        elem.style.background = 'green'
+    });
+</script>
+
+</html>

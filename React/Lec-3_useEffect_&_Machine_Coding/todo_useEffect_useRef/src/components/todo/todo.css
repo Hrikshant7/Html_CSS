@@ -1,0 +1,13 @@
+.todo-wrapper {
+    width: 50% ;
+    border: 1px solid red;
+    padding: 10px;
+}
+
+.todo-wrapper,
+.listitems_container {
+    display: flex;
+    color: rgb(16, 81, 59);
+    align-items: center;
+    flex-direction: column;
+}
