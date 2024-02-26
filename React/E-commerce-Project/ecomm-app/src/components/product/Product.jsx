@@ -1,18 +1,17 @@
-const Product = ({product}) => {
-    console.log(product);
+import AddToCart from "../addToCart/AddToCart";
+import './product.css';
 
-    // Please update the facny thing via css for the product
-
-    return(
-        <>
-            <img src={product.image}/>
-            <h1>
-               {product.title}
-            </h1> 
-            <p>{product.price}</p>
-        </>
-    )
-
-}
+const Product = ({ product }) => (
+  <div className="product-item">
+    <img className="product-image" src={product.image} alt={product.title} />
+    <div className="product-details">
+      <div className="product-title">{product.title}</div>
+      <div className="buy-item">
+        <div className="product-price">Price: ${product.price}</div>
+        <AddToCart product={product} />
+      </div>
+    </div>
+  </div>
+);
 
 export default Product;

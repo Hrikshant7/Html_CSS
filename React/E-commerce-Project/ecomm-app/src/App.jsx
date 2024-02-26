@@ -1,9 +1,12 @@
+import CartProvider from "./context/cart/CartProvider";
 import AppRoutes from "./routes/AppRoutes";
 const App = () => {
   
   return (
     <>
-      <AppRoutes />
+      <CartProvider>
+         <AppRoutes />
+      </CartProvider>
     </>
   )
 }

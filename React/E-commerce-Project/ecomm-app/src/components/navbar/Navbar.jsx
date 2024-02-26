@@ -3,10 +3,11 @@ import { Link, NavLink } from 'react-router-dom';
 import { FaOpencart } from "react-icons/fa";
 import './navbar.css'
 import Loader from '../loader';
+import { useCart } from '../../context/cart/useCart';
 
 const Navbar = ({categories, isLoading}) => {
 
-    console.log(categories);
+    const { totalQuantity } = useCart();
 
     return(
         <nav className='nav'>
@@ -32,6 +33,7 @@ const Navbar = ({categories, isLoading}) => {
             <div className='nav-right'>
                 <Link to="/cart" className="cart-icon-container">
                     <FaOpencart className="cart-icon" />
+                    {totalQuantity ? <div className='cart-badge'>{totalQuantity}</div> : <></>}
                 </Link>
             </div>
         </nav>
